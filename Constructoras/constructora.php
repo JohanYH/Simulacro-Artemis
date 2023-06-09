@@ -1,3 +1,17 @@
+<?php
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+
+require_once("config.php");
+
+$datos = new Constructora();
+
+$all = $datos ->selectConstructoraAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +60,7 @@
         <div class="parte-media">
           <div style="display: flex; justify-content: space-between;">
             <h2>Constructora</h2>
-            <button class="btn-m" data-bs-toggle="modal" data-bs-target="#registrarCategoria"><i class="bi bi-person-add " style="color: rgb(255, 255, 255);" ></i></button>
+            <button class="btn-m" data-bs-toggle="modal" data-bs-target="#registrarConstructora"><i class="bi bi-person-add " style="color: rgb(255, 255, 255);" ></i></button>
           </div>
           <div class="menuTabla contenedor2">
             <table class="table table-custom ">
@@ -99,15 +113,15 @@
     
     
         <!-- /////////Modal de registro de nuevo estuiante //////////-->
-        <div class="modal fade" id="registrarCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="backdrop-filter: blur(5px)">
+        <div class="modal fade" id="registrarConstructora" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="backdrop-filter: blur(5px)">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" >
             <div class="modal-content" >
               <div class="modal-header" >
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Categoria</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Constructora</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" style="background-color: rgb(231, 253, 246);">
-                <form class="col d-flex flex-wrap" action="registrarCategoria.php" method="post">
+                <form class="col d-flex flex-wrap" action="registrarConstructora.php" method="post">
                   <div class="mb-1 col-12">
                     <label for="nombres" class="form-label">Nombre Constructora</label>
                     <input 
