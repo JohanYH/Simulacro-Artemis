@@ -8,16 +8,16 @@ if (isset($_POST['Registrar'])) {
 
     $nuevoUser = new Registrar();
 
-    $nuevoUser->setIdUser(0);
+    $nuevoUser->setIdUser(1);
     $nuevoUser->setUsuario($_POST['usuario']);
     $nuevoUser->setEmail($_POST['email']);
     $nuevoUser->setPassword($_POST['password']);
 
     if ($nuevoUser->check($_POST['email'])) {
         echo "<script>alert ('Usuario Existente');document.location='Registrarse.php'</script>";
-    }else {
+    } else {
         $nuevoUser->insertData();
-        echo "<script>alert('Usuario Creado');document.location='Registrarse.php'</script>";
+        echo "<script>alert('Usuario Creado');document.location='../Constructoras/constructora.php'</script>";
     }
 }
 

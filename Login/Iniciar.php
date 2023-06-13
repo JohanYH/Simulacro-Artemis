@@ -12,7 +12,7 @@ if (isset($_POST['Iniciar'])) {
 
     $personas = new EntradaUser();
     
-    $personas->setUsuario($_POST['usuario']);
+    $personas->setEmail($_POST['email']);
     $personas->setPassword($_POST['password']);
 
     $login = $personas->EntradaUsuarios();

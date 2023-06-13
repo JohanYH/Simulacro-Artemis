@@ -51,6 +51,7 @@ class Constructora extends Alquiler{
     {
         try {
             $stm = $this->dbCnx->prepare("INSERT INTO constructoras (nombreConstructora,telefonoConstructora) values(?,?)");
+            $stm -> execute([$this->nombreConstructora, $this->telefonoConstructora]);
         } catch (Exception $e) {
             $e -> getMessage();
         }

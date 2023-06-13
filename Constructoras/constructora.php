@@ -87,7 +87,8 @@ $all = $datos ->selectConstructoraAll();
                 <tr>
                   <td><?php echo $val['idContructura']?></td>
                   <td><?php echo $val['nombreConstructora']?></td>
-                  <td><?php echo $val['Telefono']?></td>
+                  <td><?php echo $val['telefonoConstructora']?></td>
+                  <td>
                     <a class="btn btn-danger" href="../Constructoras/borrarConstructora.php?idContructura=<?=$val['idContructura']?>&req=delete">Borrar</a>
                   </td>
                   <td>
@@ -136,8 +137,8 @@ $all = $datos ->selectConstructoraAll();
                     <label for="direccion" class="form-label">Telefono</label>
                     <input 
                       type="text"
-                      id="Telefono"
-                      name="Telefono"
+                      id="telefonoConstructora"
+                      name="telefonoConstructora"
                       class="form-control"  
                     />
                   </div>

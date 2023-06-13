@@ -10,7 +10,7 @@ body{
       flex-direction: row;
       height: 100vh;
       margin: 0;
-      background-color: #f1c27d;
+      background-color: #bbe5f6;
       
      
     }
@@ -25,7 +25,7 @@ body{
   
   
     .parte-media {
-      background-color: #f1c27d;
+      background-color: #bbe5f6;
       width: 60%;
       padding: 20px;
      
@@ -33,7 +33,7 @@ body{
     }
     
     .parte-derecho {
-      background-color: #f1c27d;
+      background-color: #b6f8ee;
       width: 25%;
       padding: 20px;
      
@@ -184,7 +184,7 @@ body{
     }
     
     .parte-izquierda {
-      background-color: #f1c27d;
+      background-color: #bbe5f6;
       width: 15%;
       border-right: 2px solid rgb(255, 255, 255);
       padding: 20px;

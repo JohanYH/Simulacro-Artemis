@@ -2,8 +2,9 @@
 
 require_once("../Config/db.php");
 require_once("../Config/conectar.php");
+require_once("NewUser.php");
 
-class EntradaUser extends Alquiler{
+class LoginUser extends Alquiler{
     private $idUser;
     private $usuario;
     private $password;
