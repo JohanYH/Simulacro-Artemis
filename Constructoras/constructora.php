@@ -89,10 +89,10 @@ $all = $datos ->selectConstructoraAll();
                   <td><?php echo $val['nombreConstructora']?></td>
                   <td><?php echo $val['telefonoConstructora']?></td>
                   <td>
-                    <a class="btn btn-danger" href="../Constructoras/borrarConstructora.php?idContructura=<?=$val['idContructura']?>&req=delete">Borrar</a>
+                    <a class="btn btn-danger" href="borrarConstructora.php?idContructura=<?=$val['idContructura']?>&req=delete">Borrar</a>
                   </td>
                   <td>
-                    <a class="btn btn-warning" href="../Constructoras/editarConstructora.php?idContructura=<?=$val['idContructura']?>">Editar</a>
+                    <a class="btn btn-warning" href="editarConstructora.php?idContructura=<?=$val['idContructura']?>">Editar</a>
                   </td>
                 </tr>
                 <?php

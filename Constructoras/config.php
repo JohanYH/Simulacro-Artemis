@@ -1,7 +1,13 @@
 <?php
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
 
 require_once("../Config/db.php");
 require_once("../Config/conectar.php");
+/* require_once("borrarConstructora.php"); */
 
 class Constructora extends Alquiler{
     private $idContructura;
@@ -65,6 +71,20 @@ class Constructora extends Alquiler{
             return $stm->fetchAll();
         } catch (Exception $e) {
             $e -> getMessage();
+        }
+    }
+
+    //Eliminar
+
+    public function delete()
+    {
+        try {
+            $stm = $this->dbCnx->prepare ("DELETE FROM constructoras WHERE idContructura=?");
+            $stm -> execute([$this->idContructura]);
+            return $stm -> fetchAll();
+            echo "<script>alert('Ha sido Borrado Exitosamente');document.location='constructura.php'</script>";
+        } catch (Expection $e) {
+            return $e ->getMessage();
         }
     }
 }
