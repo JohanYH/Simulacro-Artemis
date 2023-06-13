@@ -1,14 +1,9 @@
 <?php
-ini_set("display_errors", 1);
-
-ini_set("display_startup_errors", 1);
-
-error_reporting(E_ALL);
 
 require_once("../Config/db.php");
 require_once("../Config/conectar.php");
 
-class Constructora extends Alquiler{
+class Cotizacion extends Alquiler{
     private $idContructura;
     private $nombreConstructora;
     private $telefonoConstructora;
