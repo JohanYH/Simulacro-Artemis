@@ -20,7 +20,7 @@ $all = $datos ->selectEmpleadoAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <title>Constructora</title>
+    <title>Empleados</title>
     <link rel="stylesheet" href="../Css/estilos.css">
 </head>
 <body>
@@ -59,7 +59,7 @@ $all = $datos ->selectEmpleadoAll();
     
         <div class="parte-media">
           <div style="display: flex; justify-content: space-between;">
-            <h2>Constructora</h2>
+            <h2>Empleados</h2>
             <button class="btn-m" data-bs-toggle="modal" data-bs-target="#registrarEmpleado"><i class="bi bi-person-add " style="color: rgb(255, 255, 255);" ></i></button>
           </div>
           <div class="menuTabla contenedor2">

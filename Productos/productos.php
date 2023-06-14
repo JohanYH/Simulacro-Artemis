@@ -20,7 +20,7 @@ error_reporting(E_ALL);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <title>Constructora</title>
+    <title>Productos</title>
     <link rel="stylesheet" href="../Css/estilos.css">
 </head>
 <body>
@@ -29,7 +29,7 @@ error_reporting(E_ALL);
         <div class="parte-izquierda">
     
           <div class="perfil">
-            <h3 style="margin-bottom: 2rem;">Constructora</h3>
+            <h3 style="margin-bottom: 2rem;">Productos</h3>
             <img src="#" alt="" class="imagenPerfil">
             <h3>Hola</h3>
           </div>
@@ -59,8 +59,8 @@ error_reporting(E_ALL);
     
         <div class="parte-media">
           <div style="display: flex; justify-content: space-between;">
-            <h2>Constructora</h2>
-            <button class="btn-m" data-bs-toggle="modal" data-bs-target="#registrarConstructora"><i class="bi bi-person-add " style="color: rgb(255, 255, 255);" ></i></button>
+            <h2>Productos</h2>
+            <button class="btn-m" data-bs-toggle="modal" data-bs-target="#registrarProductos"><i class="bi bi-person-add " style="color: rgb(255, 255, 255);" ></i></button>
           </div>
           <div class="menuTabla contenedor2">
             <table class="table table-custom ">
@@ -119,15 +119,15 @@ error_reporting(E_ALL);
     
     
         <!-- /////////Modal de registro de nuevo estuiante //////////-->
-        <div class="modal fade" id="registrarConstructora" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="backdrop-filter: blur(5px)">
+        <div class="modal fade" id="registrarProductos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="backdrop-filter: blur(5px)">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" >
             <div class="modal-content" >
               <div class="modal-header" >
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Constructora</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevos Productos</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" style="background-color: rgb(231, 253, 246);">
-                <form class="col d-flex flex-wrap" action="registrarConstructora.php" method="post">
+                <form class="col d-flex flex-wrap" action="registrarProductos.php" method="post">
                   <div class="mb-1 col-12">
                     <label for="nombres" class="form-label">Nombre Productos</label>
                     <input 
