@@ -5,7 +5,7 @@ ini_set("display_startup_errors", 1);
 
 error_reporting(E_ALL);
 
-require_once("config.php");
+/* require_once("config.php"); */
 
 /* $datos = new Constructora(); */
 
@@ -21,7 +21,7 @@ require_once("config.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Constructora</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../Css/estilos.css">
 </head>
 <body>
     <div class="contenedor">
@@ -67,8 +67,11 @@ require_once("config.php");
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nombres Constructora</th>
-                  <th scope="col">Telefono</th>
+                  <th scope="col">Nombres Productos</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Duracion</th>
+                  <th scope="col">Precio Dia</th>
+                  <th scope="col">Total</th>
                   <th scope="col">Eliminar</th>
                   <th scope="col">Editar</th>
                 </tr>
@@ -84,14 +87,17 @@ require_once("config.php");
     
                 ?>
                 <tr>
-                  <td><?php echo $val['idContructura']?></td>
-                  <td><?php echo $val['nombreConstructora']?></td>
-                  <td><?php echo $val['telefonoConstructora']?></td>
+                  <td><?php echo $val['idProductos']?></td>
+                  <td><?php echo $val['nombreProductos']?></td>
+                  <td><?php echo $val['cantidadProductos']?></td>
+                  <td><?php echo $val['duracionDia']?></td>
+                  <td><?php echo $val['precioDia']?></td>
+                  <td><?php echo $val['total']?></td>
                   <td>
-                    <a class="btn btn-danger" href="borrarConstructora.php?idContructura=<?=$val['idContructura']?>&req=delete">Borrar</a>
+                    <a class="btn btn-danger" href="borrarProductos.php?idProductos=<?=$val['idProductos']?>&req=delete">Borrar</a>
                   </td>
                   <td>
-                    <a class="btn btn-warning" href="editarConstructora.php?idContructura=<?=$val['idContructura']?>">Editar</a>
+                    <a class="btn btn-warning" href="editarProductos.php?idProductos=<?=$val['idProductos']?>">Editar</a>
                   </td>
                 </tr>
                 <?php
@@ -123,24 +129,58 @@ require_once("config.php");
               <div class="modal-body" style="background-color: rgb(231, 253, 246);">
                 <form class="col d-flex flex-wrap" action="registrarConstructora.php" method="post">
                   <div class="mb-1 col-12">
-                    <label for="nombres" class="form-label">Nombre Constructora</label>
+                    <label for="nombres" class="form-label">Nombre Productos</label>
                     <input 
                       type="text"
-                      id="nombreConstructora" 
-                      name="nombreConstructora"
+                      id="nombreProductos" 
+                      name="nombreProductos"
                       class="form-control"  
                     />
                   </div>
     
                   <div class="mb-1 col-12">
-                    <label for="direccion" class="form-label">Telefono</label>
+                    <label for="direccion" class="form-label">Cantidad</label>
                     <input 
                       type="text"
-                      id="telefonoConstructora"
-                      name="telefonoConstructora"
+                      id="cantidadProductos"
+                      name="cantidadProductos"
                       class="form-control"  
                     />
                   </div>
+                  <div class="mb-1 col-12">
+                    <label for="direccion" class="form-label">Duracion</label>
+                    <input 
+                      type="time"
+                      id="duracionDia"
+                      name="duracionDia"
+                      class="form-control"  
+                    />
+                  </div>
+                  <div class="mb-1 col-12">
+                    <label for="direccion" class="form-label">Precio Dia</label>
+                    <input 
+                      type="text"
+                      id="precioDia"
+                      name="precioDia"
+                      class="form-control"  
+                    />
+                  </div>
+                  <div class="mb-1 col-12">
+                    <label for="direccion" class="form-label">Total</label>
+                      <select name="total" id="total" class="form-control">
+                        <?php
+                          foreach ($cotizacion as $cotizaciones){
+                           $idCotizacion = $cotizaciones['idCotizacion'];
+                           $total = $cotizaciones['total'];
+                          
+                        ?>
+                        <option value="<?php echo intval($idCotizacion) ?>"><?php echo $total ?></option>
+                        <?php
+                          }
+                        ?>
+                      </select>
+                  </div>
+                  
     
                   <div class=" col-12 m-2">
                     <input type="submit" class="btn btn-primary" value="guardar" name="guardar"/>
