@@ -5,11 +5,13 @@ ini_set("display_startup_errors", 1);
 
 error_reporting(E_ALL);
 
-/* require_once("config.php"); */
+require_once("configProductos.php");
 
-/* $datos = new Constructora(); */
+$datos = new Productos();
 
-/* $all = $datos ->selectConstructoraAll();*/
+$all = $datos ->selectProductos();
+
+$cotizacion = $datos->selectC();
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +73,7 @@ error_reporting(E_ALL);
                   <th scope="col">Cantidad</th>
                   <th scope="col">Duracion</th>
                   <th scope="col">Precio Dia</th>
-                  <th scope="col">Total</th>
+                  <th scope="col">Fecha</th>
                   <th scope="col">Eliminar</th>
                   <th scope="col">Editar</th>
                 </tr>
@@ -92,7 +94,7 @@ error_reporting(E_ALL);
                   <td><?php echo $val['cantidadProductos']?></td>
                   <td><?php echo $val['duracionDia']?></td>
                   <td><?php echo $val['precioDia']?></td>
-                  <td><?php echo $val['total']?></td>
+                  <td><?php echo $val['fecha']?></td>
                   <td>
                     <a class="btn btn-danger" href="borrarProductos.php?idProductos=<?=$val['idProductos']?>&req=delete">Borrar</a>
                   </td>
@@ -166,15 +168,15 @@ error_reporting(E_ALL);
                     />
                   </div>
                   <div class="mb-1 col-12">
-                    <label for="direccion" class="form-label">Total</label>
-                      <select name="total" id="total" class="form-control">
+                    <label for="direccion" class="form-label">Fecha</label>
+                      <select name="fecha" id="fecha" class="form-control">
                         <?php
                           foreach ($cotizacion as $cotizaciones){
                            $idCotizacion = $cotizaciones['idCotizacion'];
-                           $total = $cotizaciones['total'];
+                           $Fecha = $cotizaciones['fecha'];
                           
                         ?>
-                        <option value="<?php echo intval($idCotizacion) ?>"><?php echo $total ?></option>
+                        <option value="<?php echo intval($idCotizacion) ?>"><?php echo $Fecha ?></option>
                         <?php
                           }
                         ?>

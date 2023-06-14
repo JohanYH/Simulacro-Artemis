@@ -4,17 +4,41 @@ require_once("../Config/db.php");
 require_once("../Config/conectar.php");
 
 class Cotizacion extends Alquiler{
+    private $idCotizacion;
+    private $idEmpleado;
     private $idContructura;
-    private $nombreConstructora;
-    private $telefonoConstructora;
+    private $fecha;
+    private $total;
 
-    public function __construct($idContructura = 0, $nombreConstructora = "", $telefonoConstructora = "", $dbCnx = "")
+    public function __construct($idCotizacion = 0, $idEmpleado = "", $idContructura = "", $fecha = "", $total = "", $dbCnx = "")
     {
+        $this->idCotizacion = $idCotizacion;
+        $this->idEmpleado = $idEmpleado;
         $this->idContructura = $idContructura;
-        $this->nombreConstructora = $nombreConstructora;
-        $this->telefonoConstructora = $telefonoConstructora;
+        $this->fecha = $fecha;
+        $this->total = $total;
         parent::__construct($dbCnx);
 
+    }
+
+    public function setIdCotizacion($idCotizacion)
+    {
+        $this->idCotizacion = $idCotizacion;
+    }
+
+    public function getIdCotizacion()
+    {
+        $this->idCotizacion;
+    }
+
+    public function setIdEmpleado($idEmpleado)
+    {
+        $this->idEmpleado = $idEmpleado;
+    }
+
+    public function getIdEmpleado()
+    {
+        $this->idEmpleado;
     }
 
     public function setIdContructura($idContructura)
@@ -27,41 +51,67 @@ class Cotizacion extends Alquiler{
         $this->idContructura;
     }
 
-    public function setNombreConstructora($nombreConstructora)
+    public function setFecha($fecha)
     {
-        $this->nombreConstructora = $nombreConstructora;
+        $this->fecha = $fecha;
     }
 
-    public function getNombreCostructora()
+    public function getFecha()
     {
-        $this->nombreConstructora;
+        $this->fecha;
     }
 
-    public function setTelefonoConstructora($telefonoConstructora)
+    public function setTotal($total)
     {
-        $this->telefonoConstructora = $telefonoConstructora;
+        $this->total = $total;
     }
 
-    public function getTelefonoConstructora()
+    public function getTotal()
     {
-        $this->telefonoConstructora;
+        $this->total;
     }
 
-    public function insertConstrutora()
+    public function insertCotizacion()
     {
         try {
-            $stm = $this->dbCnx->prepare("INSERT INTO constructoras (nombreConstructora,telefonoConstructora) values(?,?)");
-            $stm -> execute([$this->nombreConstructora, $this->telefonoConstructora]);
+            $stm = $this->dbCnx->prepare("INSERT INTO cotizacion (idEmpleado,idContructura, fecha, total) values(?,?,?,?)");
+            $stm -> execute([$this->idEmpleado, $this->idContructura, $this->fecha, $this->total]);
         } catch (Exception $e) {
             $e -> getMessage();
         }
     }
 
-    public function selectConstructoraAll()
+    public function selectCotizacion()
     {
         try {
-            $stm = $this->dbCnx->prepare ("SELECT * FROM constructoras");
+            $stm = $this->dbCnx->prepare ("SELECT cotizacion.idCotizacion, empleado.nombreEmpleado, constructoras.nombreConstructora,cotizacion.fecha, cotizacion.total FROM cotizacion
+            INNER JOIN empleado ON cotizacion.idEmpleado = empleado.idEmpleado
+            INNER JOIN constructoras ON cotizacion.idContructura = constructoras.idContructura");
             $stm->execute();
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            $e -> getMessage();
+        }
+    }
+
+    //Select
+
+    public function selectE()
+    {
+        try {
+            $stm = $this->dbCnx->prepare("SELECT idEmpleado,nombreEmpleado FROM empleado ");
+            $stm -> execute();
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            $e -> getMessage();
+        }
+    }
+
+    public function selectC()
+    {
+        try {
+            $stm = $this->dbCnx->prepare("SELECT idContructura,nombreConstructora FROM constructoras");
+            $stm -> execute();
             return $stm->fetchAll();
         } catch (Exception $e) {
             $e -> getMessage();
@@ -73,8 +123,8 @@ class Cotizacion extends Alquiler{
     public function delete()
     {
         try {
-            $stm = $this->dbCnx->prepare ("DELETE FROM constructoras WHERE idContructura = ?");
-            $stm -> execute([$this->idContructura]);
+            $stm = $this->dbCnx->prepare ("DELETE FROM cotizacion WHERE idCotizacion = ?");
+            $stm -> execute([$this->idCotizacion]);
             return $stm -> fetchAll();
         } catch (Expection $e) {
             return $e ->getMessage();
@@ -83,11 +133,11 @@ class Cotizacion extends Alquiler{
 
     //Editar
 
-    public function selectOneConstructora()
+    public function selectOneCotizacion()
     {
         try {
-            $stm = $this->dbCnx->prepare ("SELECT * FROM constructoras WHERE idContructura =?");
-            $stm->execute([$this->idContructura]);
+            $stm = $this->dbCnx->prepare ("SELECT * FROM cotizacion WHERE idCotizacion =?");
+            $stm->execute([$this->idCotizacion]);
             return $stm -> fetchAll();
         } catch (Expection $e) {
             return $e ->getMessage();
@@ -97,8 +147,8 @@ class Cotizacion extends Alquiler{
     public function update()
     {
         try {
-            $stm = $this->dbCnx->prepare("UPDATE constructoras SET nombreConstructora = ?, telefonoConstructora =? WHERE idContructura = ?");
-            $stm -> execute([$this->nombreConstructora, $this->telefonoConstructora, $this->idContructura]);
+            $stm = $this->dbCnx->prepare("UPDATE cotizacion SET idEmpleado = ?, idContructura =?, fecha = ?, total = ? WHERE idCotizacion = ?");
+            $stm -> execute([$this->idEmpleado, $this->idContructura,$this->fecha,$this->total, $this->idCotizacion]);
         } catch (Expection $e) {
             return $e ->getMessage();
         }

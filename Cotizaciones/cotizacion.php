@@ -5,11 +5,16 @@ ini_set("display_startup_errors", 1);
 
 error_reporting(E_ALL);
 
-/* require_once("configCotizacion.php");
+require_once("configCotizacion.php");
 
-$datos = new Constructora();
+$datos = new Cotizacion();
 
-$all = $datos ->selectConstructoraAll(); */
+$all = $datos ->selectCotizacion();
+
+$constructora = $datos->selectC();
+
+$empleado = $datos->selectE();
+
 ?>
 
 <!DOCTYPE html>
@@ -147,11 +152,11 @@ $all = $datos ->selectConstructoraAll(); */
                     <select name="nombreConstructora" id="nombreConstructora" class="form-control">
                         <?php
                           foreach ($constructora as $constructoras){
-                           $idContructura = $cotizaciones['idContructura'];
-                           $nombreConstructora = $cotizaciones['nombreConstructora'];
+                           $idContructura = $constructoras['idContructura'];
+                           $nombreC = $constructoras['nombreConstructora'];
                           
                         ?>
-                        <option value="<?php echo intval($idContructura) ?>"><?php echo $nombreConstructora ?></option>
+                        <option value="<?php echo intval($idContructura) ?>"><?php echo $nombreC ?></option>
                         <?php
                           }
                         ?>
