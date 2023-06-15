@@ -10,7 +10,7 @@ session_start();
 if (isset($_POST['Iniciar'])) {
     require_once("LoginUser.php");
 
-    $personas = new EntradaUser();
+    $personas = new LoginUser();
     
     $personas->setEmail($_POST['email']);
     $personas->setPassword($_POST['password']);
@@ -18,7 +18,7 @@ if (isset($_POST['Iniciar'])) {
     $login = $personas->EntradaUsuarios();
 
     if ($login) {
-        header('Location: ../Constructoras/constructora.html');
+        header('Location: ../Home/home.php');
     }else {
         echo "<script>alert('Invalido');document.location='Registrarse.php'</script>";
     }

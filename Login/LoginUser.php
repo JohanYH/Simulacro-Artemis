@@ -2,17 +2,18 @@
 
 require_once("../Config/db.php");
 require_once("../Config/conectar.php");
-require_once("NewUser.php");
 
 class LoginUser extends Alquiler{
     private $idUser;
     private $usuario;
+    private $email;
     private $password;
 
-    public function __construct($idUser = 0, $usuario = "", $password = "", $dbCnx = "")
+    public function __construct($idUser = 0, $usuario = "", $email = "", $password = "", $dbCnx = "")
     {
         $this->idUser = $idUser;
         $this->usuario = $usuario;
+        $this->email = $email;
         $this->password = $password;
         parent::__construct($dbCnx);
     }
@@ -35,6 +36,17 @@ class LoginUser extends Alquiler{
     public function getUsuario()
     {
         $this->usuario;
+    }
+
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getEmail()
+    {
+        $this->email;
     }
 
     public function setPassword($password)

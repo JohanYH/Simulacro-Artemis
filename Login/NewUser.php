@@ -14,10 +14,11 @@ if (isset($_POST['Registrar'])) {
     $nuevoUser->setPassword($_POST['password']);
 
     if ($nuevoUser->check($_POST['email'])) {
-        echo "<script>alert ('Usuario Existente');document.location='Registrarse.php'</script>";
+        echo "<script>alert('Usuario Creado');document.location='../Home/home.php'</script>";
+        
     } else {
         $nuevoUser->insertData();
-        echo "<script>alert('Usuario Creado');document.location='../Constructoras/constructora.php'</script>";
+        echo "<script>alert ('Usuario Existente');document.location='Registrarse.php'</script>";
     }
 }
 

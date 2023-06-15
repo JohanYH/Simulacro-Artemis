@@ -45,7 +45,7 @@ $empleado = $datos->selectE();
             </a>
             <a href="../Constructoras/constructora.php" style="display: flex;gap:1px;">
               <i class="bi bi-calendar-plus"></i>
-              <h3 style="margin: 8px;font-weight: 800;">Constructora</h3>
+              <h3 style="margin: 8px;">Constructora</h3>
             </a>
             <a href="../Empleados/empleado.php" style="display: flex;gap:1px;">
               <i class="bi bi-people"></i>
@@ -53,7 +53,7 @@ $empleado = $datos->selectE();
             </a>
             <a href="#" style="display: flex;gap:1px;">
               <i class="bi bi-person-circle"></i>
-              <h3 style="margin: 8px;">Cotizaciones</h3>
+              <h3 style="margin: 8px;font-weight: 800;">Cotizaciones</h3>
             </a>
             <a href="../Productos/productos.php" style="display: flex;gap:1px;">
               <i class="bi bi-shop"></i>

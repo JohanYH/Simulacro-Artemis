@@ -91,6 +91,23 @@ class Registrar extends Alquiler{
             $e->getMessage();
         }
     }
+
+    public function insertDatos()
+    {
+        try {
+            $stm = $this->dbCnx -> prepare("INSERT INTO Users (IdCamper, Email, UserName, tiposUsuario, Password) values(?,?,?,?,?)");
+            $stm -> execute([$this->IdCamper,$this->Email,$this->UserName,$this->tiposUsuario,md5($this->Password)]);
+
+            $login = new LoginUser();
+            $login->setEmail($_POST["Email"]);
+            $login->setPassword($_POST["Password"]);
+
+            $success = $login->LoginUsers();
+
+        } catch (Exception $e) {
+            $e -> getMessage();
+        }
+    }
 }
 
 ?>

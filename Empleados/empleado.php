@@ -40,11 +40,11 @@ $all = $datos ->selectEmpleadoAll();
             </a>
             <a href="../Constructoras/constructora.php" style="display: flex;gap:1px;">
               <i class="bi bi-calendar-plus"></i>
-              <h3 style="margin: 8px;font-weight: 800;">Constructora</h3>
+              <h3 style="margin: 8px;">Constructora</h3>
             </a>
             <a href="#" style="display: flex;gap:1px;">
               <i class="bi bi-people"></i>
-              <h3 style="margin: 8px;">Empleado</h3>
+              <h3 style="margin: 8px;font-weight: 800;">Empleado</h3>
             </a>
             <a href="../Cotizaciones/cotizacion.php" style="display: flex;gap:1px;">
               <i class="bi bi-person-circle"></i>
